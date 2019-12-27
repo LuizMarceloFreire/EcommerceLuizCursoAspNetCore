@@ -1,6 +1,6 @@
 {
   "ConnectionStrings": {
     "SqlServerConnection": "",
-    "EcommerceLuizDB": "server=localhost; uid=root; pwd=admin; database=EcommerceLuizDB"
+    "EcommerceLuizDB": "server=localhost; uid=root_admin; pwd=@dmin2019; database=EcommerceLuizDB"
   }
 }

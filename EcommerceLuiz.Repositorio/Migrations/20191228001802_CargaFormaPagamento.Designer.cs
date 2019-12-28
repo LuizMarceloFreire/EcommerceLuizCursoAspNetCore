@@ -3,14 +3,16 @@ using System;
 using EcommerceLuiz.Repositorio.Contexto;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EcommerceLuiz.Repositorio.Migrations
 {
     [DbContext(typeof(EcommerceLuizContexto))]
-    partial class EcommerceLuizContextoModelSnapshot : ModelSnapshot
+    [Migration("20191228001802_CargaFormaPagamento")]
+    partial class CargaFormaPagamento
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

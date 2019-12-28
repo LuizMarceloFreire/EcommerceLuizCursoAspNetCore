@@ -1,44 +1,50 @@
 ﻿using EcommerceLuiz.Dominio.Contratos;
+using EcommerceLuiz.Repositorio.Contexto;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace EcommerceLuiz.Repositorio.Repositorios
 {
     public class BaseRepositorio<TEntity> : IBaseRepositorio<TEntity> where TEntity : class
     {
-        public BaseRepositorio()
+        protected readonly EcommerceLuizContexto EcommerceLuizContexto;
+        public BaseRepositorio(EcommerceLuizContexto ecommerceLuizContexto)
         {
-
+            EcommerceLuizContexto = ecommerceLuizContexto;
         }
         public void Adicionar(TEntity entity)
         {
-            throw new NotImplementedException();
+            EcommerceLuizContexto.Set<TEntity>().Add(entity);
+            EcommerceLuizContexto.SaveChanges();
         }
 
         public void Atualizar(TEntity entity)
         {
-            throw new NotImplementedException();
+            EcommerceLuizContexto.Set<TEntity>().Update(entity);
+            EcommerceLuizContexto.SaveChanges();
         }
 
         public TEntity ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            return EcommerceLuizContexto.Set<TEntity>().Find(id);
         }
 
         public IEnumerable<TEntity> ObterTodos()
         {
-            throw new NotImplementedException();
+            return EcommerceLuizContexto.Set<TEntity>().ToList();
         }
 
         public void Remover(TEntity entity)
         {
-            throw new NotImplementedException();
+            EcommerceLuizContexto.Remove(entity);
+            EcommerceLuizContexto.SaveChanges();
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            EcommerceLuizContexto.Dispose();
         }
     }
 }

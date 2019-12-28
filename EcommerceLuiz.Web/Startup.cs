@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using EcommerceLuiz.Repositorio.Contexto;
+using EcommerceLuiz.Dominio.Contratos;
+using EcommerceLuiz.Repositorio.Repositorios;
 
 namespace EcommerceLuiz.Web
 {
@@ -30,6 +32,8 @@ namespace EcommerceLuiz.Web
             services.AddDbContext<EcommerceLuizContexto>(option => 
                                                             option.UseLazyLoadingProxies()
                                                             .UseMySql(connectionString, m => m.MigrationsAssembly("EcommerceLuiz.Repositorio")));
+
+            services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
 
 
             // In production, the Angular files will be served from this directory
